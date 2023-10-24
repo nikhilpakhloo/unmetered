@@ -1,13 +1,54 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+  display: none;
 }
+/* HowWeHelp.css */
+@keyframes shutter {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
+  }
+  
+  .service-card {
+    overflow: hidden;
+    position: relative;
+  }
+  
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background-color: transparent;
+    transform: translateX(-50%);
+    transition: all 0.5s;
+  }
+  
+  .service-card.even:hover::before {
+    width: 100%;
+    background-color: blue; 
+    transition: all 0.5s;
+  }
+  .service-card.odd:hover::before {
+    width: 100%;
+    background-color: rgb(231, 80, 80); /* Change this to your desired background color for odd cards */
+    transition: all 0.5s;
+  }
+  .service-card:hover {
+    background-color: transparent;
+  }
+  .service-card:hover .arrow {
+    transform: rotate(-45deg);
+  }
